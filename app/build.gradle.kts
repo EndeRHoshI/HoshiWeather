@@ -22,7 +22,6 @@ kotlin {
     
     sourceSets {
         val desktopMain by getting
-        
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
@@ -31,14 +30,15 @@ kotlin {
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
+            implementation(libs.androidx.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtimeCompose)
-        }
-        commonTest.dependencies {
-            implementation(libs.kotlin.test)
+            implementation(libs.retrofit)
+            implementation(libs.converter.gson)
+            implementation(libs.androidx.datastore.preferences.core)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
