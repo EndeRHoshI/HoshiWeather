@@ -22,6 +22,7 @@ import com.hoshi.weather.view.LeftInformation
 import hoshiweather.app.generated.resources.Res
 import hoshiweather.app.generated.resources.compose_multiplatform
 import org.jetbrains.compose.resources.painterResource
+import view.RightInformation
 
 @Composable
 fun WeatherPage(appViewModel: AppViewModel) {
@@ -40,12 +41,12 @@ fun WeatherPage(appViewModel: AppViewModel) {
 
         // 天气展示区域（右边）
         val modifier = Modifier.weight(1f).width(500.dp)
-        // RightInformation(modifier, weatherModel)
+        RightInformation(modifier, weatherModel)
 
-        val greeting = remember { Greeting().greet() }
+        /*val greeting = remember { Greeting().greet() }
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
             Image(painterResource(Res.drawable.compose_multiplatform), null)
             Text("Compose: $greeting")
-        }
+        }*/
     }
 }
