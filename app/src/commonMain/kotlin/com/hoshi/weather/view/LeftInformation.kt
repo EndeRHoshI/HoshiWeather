@@ -34,7 +34,7 @@ fun LeftInformation(
     currentCityId: String
 ) {
     var showSearch by rememberSaveable { mutableStateOf(false) } // 是否展示搜索框
-    val currentCity by appViewModel.currentCity.collectAsState("北京") // 当前城市
+    val currentCity by appViewModel.currentCity.collectAsState(AppViewModel.DEFAULT_CITY) // 当前城市
     val scope = rememberCoroutineScope() // 协程作用域
 
     Box(

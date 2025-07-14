@@ -39,6 +39,7 @@ kotlin {
             implementation(libs.retrofit)
             implementation(libs.converter.gson)
             implementation(libs.androidx.datastore.preferences.core)
+            implementation(libs.logging.interceptor) // OkHttp 拦截器
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)

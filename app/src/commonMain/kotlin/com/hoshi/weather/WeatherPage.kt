@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -24,9 +25,12 @@ import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun WeatherPage(appViewModel: AppViewModel) {
-
     val weatherModel by appViewModel.weatherModelData.collectAsState(WeatherModel())
     val currentCityId by appViewModel.currentCityId.collectAsState(DEFAULT_CITY_ID)
+
+    LaunchedEffect(currentCityId) {
+        appViewModel.getWeather(currentCityId)
+    }
 
     Row(
         modifier = Modifier.fillMaxSize().padding(10.dp),
