@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.hoshi.weather.utils.openBrowse
+import com.hoshi.weather.extentions.openBrowse
 
 @Composable
 fun SourceData(fxLink: String?) {

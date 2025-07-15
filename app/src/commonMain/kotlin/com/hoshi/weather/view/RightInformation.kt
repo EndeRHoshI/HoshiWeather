@@ -1,4 +1,4 @@
-package view
+package com.hoshi.weather.view
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.rememberScrollState
@@ -7,7 +7,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.hoshi.weather.model.WeatherModel
-import com.hoshi.weather.view.SourceData
 
 @Composable
 fun RightInformation(
@@ -18,12 +17,12 @@ fun RightInformation(
         modifier = modifier.verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        /*AirQuality(weatherModel.airNowBean) // 当前空气质量
-        HourWeather(weatherModel.hourlyBeanList) // 未来24小时天气预报
-        WeekWeather(weatherModel.dailyBeanList) // 未来7天天气预报
-        DayWeatherContent(weatherModel) // 当天具体天气数值
-        SunriseSunsetContent(weatherModel.dailyBean) // 日出日落
-        LifeWeatherContent(weatherModel.weatherLifeList) // 当天生活指数*/
+        AirQuality(weatherModel.airNowBean) // 当前空气质量
+        // HourWeather(weatherModel.hourlyBeanList) // 未来24小时天气预报
+        // WeekWeather(weatherModel.dailyBeanList) // 未来7天天气预报
+        // DayWeatherContent(weatherModel) // 当天具体天气数值
+        // SunriseSunsetContent(weatherModel.dailyBean) // 日出日落
+        // LifeWeatherContent(weatherModel.weatherLifeList) // 当天生活指数
         SourceData(weatherModel.fxLink) // 数据来源
     }
 }

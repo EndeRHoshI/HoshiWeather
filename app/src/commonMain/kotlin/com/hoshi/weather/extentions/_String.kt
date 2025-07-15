@@ -1,4 +1,4 @@
-package com.hoshi.weather.utils
+package com.hoshi.weather.extentions
 
 import java.awt.Desktop
 import java.net.URI
