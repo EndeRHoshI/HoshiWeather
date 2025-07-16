@@ -36,7 +36,6 @@ fun LeftInformation(
     var showSearch by rememberSaveable { mutableStateOf(false) } // 是否展示搜索框
     val currentCity by appViewModel.currentCity.collectAsState(AppViewModel.DEFAULT_CITY) // 当前城市
     val scope = rememberCoroutineScope() // 协程作用域
-
     Box(
         Modifier.fillMaxHeight().width(300.dp).padding(end = 10.dp)
     ) {
@@ -55,7 +54,6 @@ fun LeftInformation(
                 }
             }
         )
-
         AnimatedVisibility(
             visible = showSearch,
             enter = slideInHorizontally(),
@@ -70,5 +68,4 @@ fun LeftInformation(
             }
         }
     }
-
 }

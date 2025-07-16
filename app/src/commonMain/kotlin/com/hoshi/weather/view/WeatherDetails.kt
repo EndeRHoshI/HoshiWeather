@@ -59,7 +59,6 @@ fun WeatherDetails(
             }
             Text(nowBaseBean?.city ?: AppViewModel.DEFAULT_CITY, fontSize = 14.sp)
             Spacer(modifier = Modifier.weight(1f))
-
             Text(nowBaseBean?.obsTime?.getTimeNameForObs() ?: "现在", fontSize = 14.sp)
             IconButton(onClick = onRefreshClick) {
                 Icon(Icons.Sharp.Refresh, "")

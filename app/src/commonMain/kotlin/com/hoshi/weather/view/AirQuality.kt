@@ -35,14 +35,9 @@ fun AirQuality(airNowBean: AirNowBean.NowBean?) {
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp, 0.dp)
-        ) {
+        Column(modifier = Modifier.fillMaxWidth().padding(10.dp, 0.dp)) {
             Text(
-                text = "空气质量", fontSize = 13.sp, modifier = Modifier
-                    .padding(bottom = 7.dp)
+                text = "空气质量", fontSize = 13.sp, modifier = Modifier.padding(vertical = 6.dp)
             )
             HorizontalDivider(thickness = 0.4.dp)
             Text(
@@ -55,8 +50,9 @@ fun AirQuality(airNowBean: AirNowBean.NowBean?) {
                 modifier = Modifier.padding(top = 5.dp),
                 fontSize = 14.sp
             )
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(6.dp))
             AirQualityProgress((airNowBean?.aqi ?: "10").toInt())
+            Spacer(modifier = Modifier.height(10.dp))
         }
     }
     Spacer(modifier = Modifier.height(10.dp))
@@ -76,11 +72,12 @@ fun AirQuality(airNowBean: AirNowBean.NowBean?) {
 @Composable
 private fun AirQualityProgress(aqi: Int) {
     val aqiValue = (aqi < 500).matchTrue(aqi, 500)
+    val viewHeight = 20.dp
+    val midY = viewHeight.value / 2
     Canvas(
         modifier = Modifier
             .fillMaxWidth()
-            .height(20.dp) // 指定足够的高度（大于 strokeWidth）
-            .padding(5.dp)
+            .height(viewHeight)
     ) {
         // 画一根圆角的粗线条
         drawLine(
@@ -92,19 +89,19 @@ private fun AirQualityProgress(aqi: Int) {
                 0.4f to Color(red = 156, green = 39, blue = 176),
                 1.0f to Color(red = 143, green = 0, blue = 0),
             ),
-            start = Offset.Zero,
-            end = Offset(size.width, 0f),
-            strokeWidth = 20f,
+            start = Offset(midY, midY),
+            end = Offset(size.width - midY, midY),
+            strokeWidth = viewHeight.value,
             cap = StrokeCap.Round,
         )
         // 画线上的圆点
         drawPoints(
             points = arrayListOf(
-                Offset(size.width / 500 * aqiValue, 0f)
+                Offset(size.width / 500 * aqiValue, midY)
             ),
             pointMode = PointMode.Points,
             color = Color.White,
-            strokeWidth = 20f,
+            strokeWidth = viewHeight.value,
             cap = StrokeCap.Round,
         )
     }

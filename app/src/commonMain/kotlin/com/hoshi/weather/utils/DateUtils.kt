@@ -44,3 +44,22 @@ fun String.getDateWeekName(): String {
         weeks[weekIndex]
     }
 }
+
+/**
+ * 获取指定时间为几点
+ *
+ * time 年月日 2013-12-30T13:00+08:00
+ * @return 13时
+ */
+fun String.getTimeName(): String {
+    val calendar = Calendar.getInstance()
+    val todayHour = calendar.get(Calendar.HOUR_OF_DAY)
+    // HH为24小时 hh为12小时
+    calendar.time = yyyyMMdd.parse(this) ?: Date()
+    val hour = calendar.get(Calendar.HOUR_OF_DAY)
+    return if (todayHour + 1 == hour) {
+        "现在"
+    } else {
+        "${hour}时"
+    }
+}
