@@ -13,7 +13,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -25,7 +24,6 @@ import androidx.compose.ui.unit.sp
 import com.hoshi.weather.model.weather.WeatherHourlyBean
 import com.hoshi.weather.utils.getTimeName
 import com.hoshi.weather.utils.getWeatherIcon
-import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 fun HourWeather(hourlyBeanList: List<WeatherHourlyBean.HourlyBean>) {

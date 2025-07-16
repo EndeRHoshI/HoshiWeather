@@ -12,7 +12,6 @@ plugins {
 
 kotlin {
     androidTarget {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
         }
@@ -23,27 +22,26 @@ kotlin {
     sourceSets {
         val desktopMain by getting
         androidMain.dependencies {
-            implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
         }
         commonMain.dependencies {
+            // compose 相关库
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
-            implementation(libs.androidx.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
+            implementation(compose.desktop.currentOs) // desktop 库
+
+            // AndroidX 相关库
+            implementation(libs.androidx.material3) // AndroidX 的 material3 库，使用某些图标 TODO 后续可以移除，替换成别的
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtimeCompose)
-            implementation(libs.retrofit)
-            implementation(libs.converter.gson)
             implementation(libs.androidx.datastore.preferences.core)
+
+            implementation(libs.retrofit) // retrofit 网络库
             implementation(libs.logging.interceptor) // OkHttp 拦截器
-        }
-        desktopMain.dependencies {
-            implementation(compose.desktop.currentOs)
-            implementation(libs.kotlinx.coroutinesSwing)
+            implementation(libs.converter.gson) // Gson 转换器
         }
     }
 }
@@ -73,10 +71,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-}
-
-dependencies {
-    debugImplementation(compose.uiTooling)
 }
 
 compose.desktop {
