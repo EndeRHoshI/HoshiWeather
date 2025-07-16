@@ -21,7 +21,7 @@ fun RightInformation(
         HourWeather(weatherModel.hourlyBeanList) // 未来 24 小时天气预报
         WeekWeather(weatherModel.dailyBeanList) // 未来 7 天天气预报
         DayWeatherContent(weatherModel) // 当天具体天气数值
-        // SunriseSunsetContent(weatherModel.dailyBean) // 日出日落
+        SunriseSunsetContent(weatherModel.dailyBean) // 日出日落
         // LifeWeatherContent(weatherModel.weatherLifeList) // 当天生活指数
         SourceData(weatherModel.fxLink) // 数据来源
     }
